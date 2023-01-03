@@ -67,7 +67,7 @@
   <ItemGroup>
     <ProjectReference Include="..\UModule.Entities\UModule.Entities.csproj">
       <Project>{d708eba2-38f4-4bc2-b11a-13e31489770b}</Project>
-      <Name>DeliverySystem.Entities</Name>
+      <Name>UModule.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

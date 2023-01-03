@@ -17,6 +17,11 @@ namespace UModule.ViewModels
         public string Password { get; set; }
         public string Contact { get; set; }
         public string SearchTerm { get; set; }
+
+
+        public List<Product> Products { get; set; }
+        public Product Product { get; set; }
+
     }
 
     

@@ -84,18 +84,18 @@
     <Compile Include="AMUserManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UModule.Database\UModule.Database.csproj">
-      <Project>{1627DC5E-E0E0-4B90-A971-30664D250B9D}</Project>
-      <Name>ArticleManagement.Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UModule.Entities\UModule.Entities.csproj">
-      <Project>{D708EBA2-38F4-4BC2-B11A-13E31489770B}</Project>
-      <Name>ArticleManagement.Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UModule.Database\UModule.Database.csproj">
+      <Project>{1627dc5e-e0e0-4b90-a971-30664d250b9d}</Project>
+      <Name>UModule.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UModule.Entities\UModule.Entities.csproj">
+      <Project>{d708eba2-38f4-4bc2-b11a-13e31489770b}</Project>
+      <Name>UModule.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

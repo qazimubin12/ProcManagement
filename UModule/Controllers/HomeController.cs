@@ -52,8 +52,17 @@ namespace UModule.Controllers
         public ActionResult Index()
         {
             AdminViewModel model = new AdminViewModel();
-            var user = UserManager.FindById(User.Identity.GetUserId());
-            model.Name = user.Name;
+          
+            model.Products = ProductServices.Instance.GetProducts();
+            return View(model);
+        }
+
+
+        public ActionResult View(int ID)
+        {
+            AdminViewModel model = new AdminViewModel();
+
+            model.Product = ProductServices.Instance.GetProducts(ID);
             return View(model);
         }
 

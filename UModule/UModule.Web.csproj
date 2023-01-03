@@ -1262,15 +1262,15 @@
   <ItemGroup>
     <ProjectReference Include="..\UModule.Database\UModule.Database.csproj">
       <Project>{1627dc5e-e0e0-4b90-a971-30664d250b9d}</Project>
-      <Name>DeliverySystem.Database</Name>
+      <Name>UModule.Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\UModule.Entities\UModule.Entities.csproj">
       <Project>{d708eba2-38f4-4bc2-b11a-13e31489770b}</Project>
-      <Name>DeliverySystem.Entities</Name>
+      <Name>UModule.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\UModule.Services\UModule.Services.csproj">
       <Project>{a9c277e4-367c-4c87-98df-adc018daee4b}</Project>
-      <Name>DeliverySystem.Services</Name>
+      <Name>UModule.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

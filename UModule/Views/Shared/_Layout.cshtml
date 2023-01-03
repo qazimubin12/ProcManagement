@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Article Management</title>
+    <title>Products Management</title>
 
 
     <!-- endinject -->
@@ -43,35 +43,10 @@
             <div style="background-color:dodgerblue;" class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
 
-                    @if (User.IsInRole("Admin") == true)
-                    {
-                <a class="navbar-brand brand-logo" href="@Url.Action("Dashboard", "Admin")" style="color:white;">
-                    <img src="~/Content/template/images/logo.png" />
-                </a>
-                                <a class="navbar-brand brand-logo-mini" href="@Url.Action("Dashboard", "Admin")" style="color:white;">
-                                    <img src="~/Content/template/images/logo.png" />
-                                </a> }
+                   
 
 
-                            else if (User.IsInRole("Copywriter"))
-                            {
-
-                <a class="navbar-brand brand-logo" href="@Url.Action("Dashboard", "Copywriter")" style="color:white;">
-                    <img src="~/Content/template/images/logo.png" />
-                </a>
-                                <a class="navbar-brand brand-logo-mini" href="@Url.Action("Dashboard", "Copywriter")" style="color:white;">
-                                    <img src="~/Content/template/images/logo.png" />
-                                </a>
-                                
-                                }
-                                            else
-                                            {
-                                <a class="navbar-brand brand-logo" href="@Url.Action("Dashboard", "Editor")" style="color:white;">
-                                    <img src="~/Content/template/images/logo.png" />
-                                </a>
-                                                <a class="navbar-brand brand-logo-mini" href="@Url.Action("Dashboard", "Copywriter")" style="color:white;">
-                                                    <img src="~/Content/template/images/logo.png" />
-                                                </a>}
+                           
 
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                         <span class="typcn typcn-th-menu"></span>
@@ -79,34 +54,7 @@
                 </div>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                <ul class="navbar-nav mr-lg-2">
-                    <li class="nav-item nav-profile dropdown">
-                        <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-
-                            @if (User.IsInRole("Copywriter"))
-                            {
-                        <img src="~/Content/template/images/4-user-profile-icons-Iconfinder.png" alt="profile" /> }
-                    else
-                    {
-                        <img src="~/Content/template/images/admin (1).png" alt="profile" />}
-                            @if (Session["User"] != null)
-                            {
-                        <span class="nav-profile-name">@Session["User"].ToString()</span>
-                                        <i class="mdi mdi-arrow-down"></i>}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a href="@Url.Action("UserProfile","Account")" class="dropdown-item">
-                                <i class="typcn typcn-cog-outline text-primary"></i>
-                                Your Profile
-                            </a>
-                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">
-                                <i class="typcn typcn-eject text-primary"></i>
-                                Logout
-                            </a>
-                        </div>
-                    </li>
-
-                </ul>
+                
                 <ul class="navbar-nav navbar-nav-right">
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -141,76 +89,20 @@
             <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                    @if (User.IsInRole("Admin") == true)
-                    {
-                <li class="nav-item">
-
-                    <a class="nav-link" href="@Url.Action("Dashboard", "Admin")">
-                        <i class="typcn typcn-device-desktop menu-icon"></i>
-                        <span class="menu-title">Dashboard</span>
-                    </a>
-                </li>
- }
-            else if (User.IsInRole("Copywriter") == true)
-            {
-                <li class="nav-item">
-
-                    <a class="nav-link" href="@Url.Action("Dashboard", "Copywriter")">
-                        <i class="typcn typcn-device-desktop menu-icon"></i>
-                        <span class="menu-title">Dashboard</span>
-                    </a>
-                </li> }
-                            else if (User.IsInRole("Editor") == true)
-                            {
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Dashboard", "Editor")">
-                        <i class="typcn typcn-device-desktop menu-icon"></i>
-                        <span class="menu-title">Dashboard</span>
-                    </a>
-                </li>}
-
-
-
-
-                    @if (User.IsInRole("Admin") == true)
-                    {
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "User")">
-                        <i class="mdi mdi-account-settings menu-icon"></i>
-                        <span class="menu-title">Users</span>
-                    </a>
-                </li>
-
-
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="@Url.Action("Index", "BlogTitle")">
-                                        <i class="mdi mdi-credit-card-settings menu-icon"></i>
-                                        <span class="menu-title">Blog Title</span>
-                                    </a>
-                                </li>
-
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="@Url.Action("Index", "Role")">
-                                                        <i class="mdi mdi-account-card-details menu-icon"></i>
-                                                        <span class="menu-title">Roles</span>
-                                                    </a>
-                                                </li>
-}
-
 
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Article")">
-                            <i class="mdi mdi-printer-settings menu-icon"></i>
-                            <span class="menu-title">Article</span>
+
+                        <a class="nav-link" href="@Url.Action("", "")">
+                            <i class="typcn typcn-device-desktop menu-icon"></i>
+                            <span class="menu-title">Home</span>
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
-                            <i class="mdi mdi-logout menu-icon"></i>
-                            <span class="menu-title">Logout</span>
+
+                        <a class="nav-link" href="@Url.Action("Index", "Product")">
+                            <i class="typcn typcn-device-desktop menu-icon"></i>
+                            <span class="menu-title">Products</span>
                         </a>
                     </li>
 
@@ -245,7 +137,7 @@
 
 
 
-    <script src="~/Content/template/js/dashboard.js"></script>
+    @*<script src="~/Content/template/js/dashboard.js"></script>*@
 
 
     <!-- base:js -->
