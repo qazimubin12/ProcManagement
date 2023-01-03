@@ -53,19 +53,11 @@ namespace UModule.Controllers
         {
             AdminViewModel model = new AdminViewModel();
           
-            model.Products = ProductServices.Instance.GetProducts();
             return View(model);
         }
 
 
-        public ActionResult View(int ID)
-        {
-            AdminViewModel model = new AdminViewModel();
-
-            model.Product = ProductServices.Instance.GetProducts(ID);
-            return View(model);
-        }
-
+       
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
