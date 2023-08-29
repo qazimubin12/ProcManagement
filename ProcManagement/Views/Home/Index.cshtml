@@ -1,10 +1,137 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-    int Count = 0;
+    Layout = null;
 }
 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PROCEDURE MANAGEMENT</title>
+
+
+    <!-- endinject -->
+    <!-- base:css -->
+
+
+    <link rel="stylesheet" href="~/Content/template/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="~/Content/template/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/Content/template/vendors/mdi/css/materialdesignicons.min.css" />
+
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/Content/template/css/vertical-layout-light/style.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/Content/template/images/g-icon-15.jpg" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body>
+    <style>
+        /* Customize your styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .full-width-banner {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .full-width-bg {
+            background-color: #b2d8b2;
+            padding: 50px 0;
+            height:100%;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+    </style>
+   
+
+  
+
+    <div class="full-width-bg">
+        <div class="header text-center">
+            <h1>Hospital Procedures Management</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Welcome to Our Hospital</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lobortis, nisl id gravida bibendum, urna elit varius orci, eget bibendum lectus urna eget ex.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Login / Register
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <a href="@Url.Action("Login","Account")" class="btn btn-primary">Login</a>
+                                <a href="@Url.Action("Register","Account")" class="btn btn-primary">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
 
 
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- base:js -->
+<script src="~/Content/template/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="~/Content/template/vendors/chart.js/Chart.min.js"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="~/Content/template/js/off-canvas.js"></script>
+<script src="~/Content/template/js/hoverable-collapse.js"></script>
+<script src="~/Content/template/js/template.js"></script>
+<script src="~/Content/template/js/settings.js"></script>
+<script src="~/Content/template/js/todolist.js"></script>

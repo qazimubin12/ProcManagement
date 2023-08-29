@@ -188,6 +188,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\EntryViewModel.cs" />
     <Compile Include="ViewModels\RolesViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
   </ItemGroup>
@@ -1245,10 +1246,13 @@
     <Content Include="Views\Role\_Delete.cshtml" />
     <Content Include="Views\User\_UserRoles.cshtml" />
     <Content Include="Views\Account\UserProfile.cshtml" />
+    <Content Include="Views\Entry\Action.cshtml" />
+    <Content Include="Views\Entry\Index.cshtml" />
+    <Content Include="Views\Entry\_Delete.cshtml" />
+    <Content Include="Views\Entry\_Listing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Entry\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1295,7 +1299,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1432</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44444/</IISUrl>
+          <IISUrl>https://localhost:44341/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

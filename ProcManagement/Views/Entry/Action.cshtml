@@ -2,7 +2,19 @@
 @{
     ViewBag.Title = "Action";
 }
-
+<style>
+    .form-control, .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead, .tt-query, .tt-hint {
+        border: 1px solid black;
+        font-weight: 400;
+        font-size: 0.875rem;
+    }
+        select.form-control, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint {
+            padding: 0.4375rem 0.75rem;
+            border: 0;
+            outline: 1px solid black;
+            color: black;
+        }
+</style>
 @if (Model != null)
 {
     <div class="card">
@@ -22,28 +34,92 @@
 
             }
 
-            <form id="actionForm">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <input type="hidden" value="@Model.ID" name="ID" />
-                            <label for="name">Name:</label>
-                            <input value="@Model.Name" type="text" class="form-control" name="Name" id="name" placeholder="Enter name" />
-                        </div>
+        <form id="actionForm">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group"></div>
+                    <label for="name">Date:</label>
+                    @if (Model.ID == 0)
+                    {
+                        @Html.TextBox("Date", DateTime.Now, "{0:yyyy-MM-dd}", new { @style = "width:100%;", @id = "EntryDate", @class = "form-control", type = "date" })
+                    }
+                    else
+                    {
+                        @Html.TextBox("Date", Model.Date, "{0:yyyy-MM-dd}", new { @style = "width:100%;", @id = "EntryDate", @class = "form-control", type = "date" })
+
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group"></div>
+                    <label for="name">Hospital:</label>
+                    <input type="text" value="@Model.Hospital" placeholder="Select Hospital, if not found just write name" autocomplete="off" class="form-control" name="Hospital" list="HospitalList" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="hidden" value="@Model.ID" name="ID" />
+                        <label for="name">Name:</label>
+                        <input value="@Model.Name" type="text" class="form-control" name="Name" id="Name" placeholder="Enter name" />
                     </div>
                 </div>
-            </form>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="name">Age:</label>
+                        <input value="@Model.Age" type="number" class="form-control" name="Age" id="Age" placeholder="Enter Age" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="name">Sex:</label>
+                        <select class="form-control" name="Sex" id="Sex">
+                            @if (Model.Sex == "Male")
+                            {
+                                <option value="Male" selected>Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            }
+                            else if (Model.Sex == "Female")
+                            {
+                                <option value="Male">Male</option>
+                                <option selected value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            }
+                            else if (Model.Sex == "Other")
+                            {
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option selected value="Other">Other</option>
+                            }
+                            else
+                            {
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
 
+                <div class="col-md-12">
+                    <div class="form-group"></div>
+                    <label for="name">Procedure:</label>
+                    <input type="text" class="form-control" name="Procedure" value="@Model.Procedure" />
+                </div>
 
-
-            <div class="errorDiv">
 
             </div>
+        </form>
         </div>
         <div style="background-color:white;" class="card-footer">
             @if (Model.ID != 0)
             {
-                <button id="actionButton" type="button" class="btn btn-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                <button id="actionButton" type="button" class="btn btn-secondary"><i class="fas fa-save mr-1"></i> Update</button>
             }
             else
             {
@@ -53,6 +129,13 @@
         </div>
     </div>
 }
+
+<datalist id="HospitalList">
+    @foreach (var item in Model.Hospitals)
+    {
+        <option value="@item">@item</option>
+    }
+</datalist>
 
 <script>
 

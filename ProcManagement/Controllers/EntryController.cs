@@ -28,7 +28,9 @@ namespace ProcManagement.Controllers
             model.Hospitals = BaseServices.Instance.GetHospital().Select(X=>X.Name).ToList();
             if (ID != 0)
             {
+                
                 var entry = BaseServices.Instance.GetEntryById(ID);
+                model.ID = entry.ID;
                 model.Age = entry.Age;
                 model.Procedure = entry.Procedure;
                 model.Name = entry.Name;

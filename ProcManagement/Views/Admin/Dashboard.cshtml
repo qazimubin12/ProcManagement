@@ -17,30 +17,25 @@
 </style>
 <h2>Dashboard - Welcome @Model.SignedInUser.Name</h2>
 <hr />
-<h2>Articles</h2>
-
-<div class="row mb-3">
-    <div class="col col-lg-12">
-        <form method="post">
-            <div class="input-group">
-                <input type="text" name="searchterm" class="form-control" placeholder="Search." value="@Model.SearchTerm">
-                @Html.ValidationSummary("", new { @class = "text-danger" })
 
 
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search mr-1"></i> Search</button>
-                    <a class="btn btn-outline-secondary" href="@Url.Action("Dashboard", "Admin")"><i class="fas fa-redo-alt mr-1"></i> Reset</a>
-                </div>
-            </div>
-        </form>
+
+    <div class="row">
+        <div class="col-md-3">
+            <button onclick="window.location.href='@Url.Action("Action","Entry")'" class="btn btn-primary btn-rounded">
+                NEW ENTRY
+            </button>
+        </div>
+        <div class="col-md-3">
+
+            <button onclick="window.location.href='@Url.Action("Index","Entry")'" class="btn btn-primary btn-rounded">
+                SAVED DATA
+            </button>
+        </div>
     </div>
-</div>
 
-<div class="card">
 
-    
 
-</div>
 
 
 <div class="modal fade" id="actionModal" tabindex="-1" role="dialog">
