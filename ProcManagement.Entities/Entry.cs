@@ -14,5 +14,7 @@ namespace ProcManagement.Entities
         public int Age { get; set; }
         public string Sex { get; set; }
         public string Procedure { get; set; }
+
+        public string UserID { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ProcManagement.Entities;
+﻿using Microsoft.AspNet.Identity;
+using ProcManagement.Entities;
 using ProcManagement.Services;
 using ProcManagement.ViewModels;
 using System;
@@ -16,7 +17,7 @@ namespace ProcManagement.Controllers
         {
             EntryListingViewModel model = new EntryListingViewModel();
             model.SearchTerm  = SearchTerm;
-            model.Entries = BaseServices.Instance.GetEntry();
+            model.Entries = BaseServices.Instance.GetEntry().Where(x => x.UserID == User.Identity.GetUserId()).ToList();
             return View(model);
         }
 
@@ -25,7 +26,7 @@ namespace ProcManagement.Controllers
         public ActionResult Action(int ID = 0)
         {
             EntryActionViewModel model = new EntryActionViewModel();
-            model.Hospitals = BaseServices.Instance.GetHospital().Select(X=>X.Name).ToList();
+            model.Hospitals = BaseServices.Instance.GetHospital().Where(x=>x.UserID == User.Identity.GetUserId()).Select(X=>X.Name).ToList();
             if (ID != 0)
             {
                 
@@ -47,11 +48,12 @@ namespace ProcManagement.Controllers
         {
             if (model.ID != 0)
             {
-                var hospital = BaseServices.Instance.GetHospital().Where(x => x.Name == model.Name).FirstOrDefault();
+                var hospital = BaseServices.Instance.GetHospital().Where(x => x.Name == model.Name && x.UserID == User.Identity.GetUserId()).FirstOrDefault();
                 if(hospital == null)
                 {
                     var Hospital = new Hospital();
                     Hospital.Name = model.Name;
+                    Hospital.UserID = User.Identity.GetUserId();
                     BaseServices.Instance.CreateHospital(Hospital);
 
                 }
@@ -61,23 +63,27 @@ namespace ProcManagement.Controllers
                 entry.Age = model.Age;
                 entry.Procedure = model.Procedure;
                 entry.Hospital = model.Hospital;
+                entry.UserID = User.Identity.GetUserId();
                 entry.Date = model.Date;
                 entry.Sex = model.Sex;
                 BaseServices.Instance.UpdateEntry(entry);
             }
             else
             {
-                var hospital = BaseServices.Instance.GetHospital().Where(x => x.Name == model.Name).FirstOrDefault();
+                var hospital = BaseServices.Instance.GetHospital().Where(x => x.Name == model.Name && x.UserID == User.Identity.GetUserId()).FirstOrDefault();
                 if (hospital == null)
                 {
                     var Hospital = new Hospital();
                     Hospital.Name = model.Name;
+                    Hospital.UserID = User.Identity.GetUserId();
                     BaseServices.Instance.CreateHospital(Hospital);
 
                 }
+
                 var entry = new Entry();
                 entry.Name = model.Name;
                 entry.Age = model.Age;
+                entry.UserID = User.Identity.GetUserId();
                 entry.Procedure = model.Procedure;
                 entry.Hospital = model.Hospital;
                 entry.Date = model.Date;
