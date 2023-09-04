@@ -17,7 +17,10 @@ namespace ProcManagement.Controllers
         {
             EntryListingViewModel model = new EntryListingViewModel();
             model.SearchTerm  = SearchTerm;
-            model.Entries = BaseServices.Instance.GetEntry().Where(x => x.UserID == User.Identity.GetUserId()).ToList();
+            model.Entries = BaseServices.Instance.GetEntry()
+                .Where(x => x.UserID == User.Identity.GetUserId())
+                .OrderByDescending(x => x.Date)
+                .ToList();
             return View(model);
         }
 
@@ -26,7 +29,7 @@ namespace ProcManagement.Controllers
         public ActionResult Action(int ID = 0)
         {
             EntryActionViewModel model = new EntryActionViewModel();
-            model.Hospitals = BaseServices.Instance.GetHospital().Where(x=>x.UserID == User.Identity.GetUserId()).Select(X=>X.Name).ToList();
+            model.Hospitals = BaseServices.Instance.GetEntry().Where(x=>x.UserID == User.Identity.GetUserId()).Select(x=>x.Hospital).Distinct().ToList();
             if (ID != 0)
             {
                 
